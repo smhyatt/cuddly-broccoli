@@ -12,10 +12,10 @@ const runFrontend = async serverLogger => {
   const app = express();
   app.use(express.static(path.join(__dirname, '/../public')));
 
-  const server = app.listen(80);
+  const server = app.listen(8080);
 
   await configureWebSocket(server, logger);
-  await configureLocalTunnel(logger);
+  // await configureLocalTunnel(logger);
 };
 
 module.exports = { runFrontend };

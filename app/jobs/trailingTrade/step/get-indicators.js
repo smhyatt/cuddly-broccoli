@@ -148,7 +148,7 @@ const execute = async (logger, rawData) => {
     lowestPrice,
     triggerPrice: buyTriggerPrice,
     difference: buyDifference,
-    openOrders: newOpenOrders?.filter(o => o.side.toLowerCase() === 'buy'),
+    openOrders: newOpenOrders.filter(o => o.side.toLowerCase() === 'buy'),
     processMesage: '',
     updatedAt: moment().utc()
   };
@@ -161,7 +161,7 @@ const execute = async (logger, rawData) => {
     difference: sellDifference,
     currentProfit: sellCurrentProfit,
     currentProfitPercentage: sellCurrentProfitPercentage,
-    openOrders: newOpenOrders?.filter(o => o.side.toLowerCase() === 'sell'),
+    openOrders: newOpenOrders.filter(o => o.side.toLowerCase() === 'sell'),
     processMessage: '',
     updatedAt: moment().utc()
   };

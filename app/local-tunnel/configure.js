@@ -3,7 +3,7 @@ const config = require('config');
 const { slack, cache } = require('../helpers');
 
 const connect = async logger => {
-  if (config.get('localTunnel.enabled') !== true) {
+  if (!config.get('localTunnel.enabled')) {
     logger.info('Local tunnel is disabled');
     await cache.hdel('trailing-trade-common', 'local-tunnel-url');
     return false;

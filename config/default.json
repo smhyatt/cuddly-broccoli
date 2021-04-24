@@ -1,6 +1,6 @@
 {
   "mode": "test",
-  "tz": "Australia/Melbourne",
+  "tz": "Europe/Copenhagen",
   "binance": {
     "live": {
       "apiKey": "",
@@ -28,7 +28,7 @@
     "username": ""
   },
   "localTunnel": {
-    "enabled": true,
+    "enabled": false,
     "subdomain": "default"
   },
   "jobs": {
