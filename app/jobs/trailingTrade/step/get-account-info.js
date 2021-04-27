@@ -49,6 +49,7 @@ const execute = async (logger, rawData) => {
     total: 0,
     estimatedValue: 0
   };
+
   const quoteAssetBalance = accountInfo.balances.filter(
     b => b.asset === quoteAsset
   )[0] || {

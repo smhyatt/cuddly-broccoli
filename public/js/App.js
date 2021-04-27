@@ -157,6 +157,8 @@ class App extends React.Component {
           exchangeSymbols={exchangeSymbols}
           exchangeFIATs={exchangeFIATs}
           sendWebSocket={this.sendWebSocket}
+          symbols={symbols}
+          accountInfo={accountInfo}
         />
         {_.isEmpty(configuration) === false ? (
           <div className='app-body'>

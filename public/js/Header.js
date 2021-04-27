@@ -8,8 +8,24 @@ class Header extends React.Component {
       publicURL,
       sendWebSocket,
       exchangeSymbols,
-      exchangeFIATs
+      exchangeFIATs,
+      symbols,
+      accountInfo
     } = this.props;
+
+    // Initialize value, and check that we have the info we need
+    let estimatedValue = 0.0;
+    let quoteAsset = '';
+    if (Object.keys(accountInfo).includes("balances") && symbols.length > 0) {
+      // Get the balance of the quote asset
+      estimatedValue += parseFloat(symbols[0].quoteAssetBalance.free) + parseFloat(symbols[0].quoteAssetBalance.locked);
+      quoteAsset = symbols[0].quoteAssetBalance.asset;
+
+      // Add the estimated value of each symbol
+      symbols.forEach(symbol => {
+        estimatedValue += symbol.baseAssetBalance.estimatedValue;
+      });
+    }
 
     return (
       <div className='app-header'>
@@ -23,6 +39,8 @@ class Header extends React.Component {
               />{' '}
               Binance Auto Trading Bot
             </h1>
+
+            <span>Estimated total value: {estimatedValue} {quoteAsset}</span>
           </div>
           <div className='header-column header-column-icon'>
             <div className='header-column-icon-wrapper github-wrapper'>
